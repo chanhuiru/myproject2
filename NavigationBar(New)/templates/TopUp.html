@@ -1,0 +1,288 @@
+{% extends 'layout.html' %}
+{% block body %}
+<style>
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #aca49c;
+  font-size: 1em;
+}
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+  color: #bbb5af;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #aca49c;
+  font-size: 1em;
+}
+
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+  color: #bbb5af;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #aca49c;
+  font-size: 1em;
+}
+
+
+input:hover::-webkit-input-placeholder, textarea:hover::-webkit-input-placeholder {
+  color: #e2dedb;
+  font-size: 1em;
+}
+
+input:hover:focus::-webkit-input-placeholder, textarea:hover:focus::-webkit-input-placeholder {
+  color: #cbc6c1;
+}
+
+input:hover::-moz-placeholder, textarea:hover::-moz-placeholder {
+  color: #e2dedb;
+  font-size: 1em;
+}
+
+input:hover:focus::-moz-placeholder, textarea:hover:focus::-moz-placeholder {
+  color: #cbc6c1;
+}
+
+input:hover::placeholder, textarea:hover::placeholder {
+  color: #e2dedb;
+  font-size: 1em;
+}
+
+input:hover:focus::placeholder, textarea:hover:focus::placeholder {
+  color: #cbc6c1;
+}
+
+input:hover::placeholder, textarea:hover::placeholder {
+  color: #e2dedb;
+  font-size: 1em;
+}
+
+
+body {
+    background-color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  position: relative;
+  margin: 100px 0 25px 0;
+  font-size: 2.3em;
+  text-align: center;
+  letter-spacing: 7px;
+}
+
+#form {
+  position: relative;
+  width: 40vw;
+    margin:auto;
+}
+
+#submit {
+  width: 40vw;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  color: #b3aca7;
+  outline:none;
+  cursor: pointer;
+  border: solid 2px #b3aca7;
+  border-top: none;
+}
+
+input {
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  width: 40vw;
+  height: 10vh;
+  padding: 0px 15px 0px 15px;
+
+  background: transparent;
+  outline: none;
+  color: #726659;
+
+  border: solid 2px #b3aca7;
+  border-bottom: none;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+input:hover {
+  background: #b3aca7;
+  color: #e2dedb;
+}
+
+textarea {
+  width: 30vw;
+  height: 10vh;
+  padding: 15px;
+
+  background: transparent;
+  outline: none;
+
+  color: #726659;
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+
+  border: solid 2px #b3aca7;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+textarea:hover {
+  background: #b3aca7;
+  color: #e2dedb;
+}
+
+
+
+#submit:hover {
+  color: #e2dedb;
+}
+
+/* Bar graph */
+
+
+
+
+/*table */
+.table-fixed thead {
+  width: 70vw;
+    height: 5vh;
+    margin: auto;
+}
+.table-fixed tbody {
+  height: 60vh;
+  overflow-y: auto;
+  width: 70vw;
+    margin: auto;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+  display: block;
+}
+.table-fixed tbody td, .table-fixed thead > tr> th {
+    float: left;
+  border-bottom-width: 0;
+}
+
+h3{
+    text-align: center;
+}
+</style>
+<script>
+function myFunction() {
+    alert("You have sucessfully made changes to Jenny's allowance!");
+}
+    /*var txt;
+    if (confirm("Press a button!") == true) {
+        txt = "You pressed OK!";
+    } else {
+        txt = "You pressed Cancel!";
+    }
+    document.getElementById("demo").innerHTML = txt;
+}*/
+</script>
+  <ul class="nav nav-tabs">
+
+      <li class="active"><a data-toggle="tab" href="#home"><span class="glyphicon glyphicon-usd"></span>  Top-Up</a></li>
+      <li><a data-toggle="tab" href="#menu1"><span class="glyphicon glyphicon-list"></span>  Top-Up History</a></li>
+  <li><a data-toggle="tab" href="#menu2"><span class="glyphicon glyphicon-stats"></span>  Comparison</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>Top - Up Allowance</h3>
+      <form method="POST" id="form" class="topBefore"><br>
+
+		  <label for="current">Current Allowance: $3</label><br><br>
+		  <input id="number" type="number" placeholder="Input Amount" min="1" max="10">
+          <input id="submit" type="submit"  onclick="myFunction()" value="Top-Up!">
+
+</form>
+
+
+
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Top - Up History</h3>
+    <div class="container-table">
+  <div class="row">
+      <div class="panel panel-default">
+        <table class="table table-fixed">
+          <thead>
+            <tr>
+              <th class="col-xs-3">Date</th><th class="col-xs-4">Name</th><th class="col-xs-3">Amount</th><th class="col-xs-2">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for i in tt %}
+            <tr>
+              <td class="col-xs-3">{{ i[0] }}</td><td class="col-xs-4">{{ i[1] }}</td><td class="col-xs-3">{{ i[2] }}</td><td class="col-xs-2">{{ i[3] }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+  </div>
+
+    <div id="menu2" class="tab-pane fade">
+     <h3>Comparison:</h3><br>
+
+    <canvas id="myChart"></canvas>
+      </div>
+      </div>
+
+<script>
+var ctx = "myChart";
+var myChart = new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["Jenny", "Tom", "Jim"],
+        datasets: [{
+            label: 'Weekly Allowance($)',
+            data: [8,4,3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 400, 100, 0.2)'
+            ],
+            borderColor: [
+                'rgba(245, 0, 0, 1)',
+                'rgba(245, 106, 0, 1)',
+                'rgba(0, 245, 16, 1)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        },
+        responsive: true
+    }
+});
+</script>
+
+
+<style>
+    #myChart {
+        height:550px !important;
+        width: content-box;
+    }
+</style>
+
+{% endblock %}
